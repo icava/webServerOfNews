@@ -17,7 +17,7 @@ func ShowArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	db, err := sql.Open("mysql", "root@tcp(MySQL-8.2:3306)/golang")
+	db, err := sql.Open("mysql", conToBD)
 	if err != nil {
 		handleError(w, err, http.StatusInternalServerError)
 		return

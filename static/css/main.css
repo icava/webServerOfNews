@@ -6,7 +6,7 @@
     }
 
     body {
-        font-family: Funnel_Sans, Arial, sans-serif;
+        font-family: "Funnel_Sans", Arial, sans-serif;
         font-weight: 400;
         background: linear-gradient(to bottom, black, #333);
         color: rgba(255, 255, 255, 0.63);
@@ -129,7 +129,7 @@
     .news-container {
         width: 80%; /* Устанавливаем ширину контейнера на 80% от экрана */
         margin: 20px auto;
-        background-color: #c7c7b4;
+        background-color: #6d6d6d;
         border-radius: 20px;
         padding: 20px;
         box-sizing: border-box;
@@ -154,6 +154,17 @@
         width: 100%;
         position: relative;
     }
+
+    .news-container h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%;
+        position: relative;
+    }
+
     .news-container h2::after {
         content: "";
         display: block;
@@ -179,7 +190,7 @@
     .read-more {
         display: inline;
         padding: 10px 20px;
-        background-color: #737768;
+        background-color: #000000;
         color: white;
         font-size: 14px;
         text-decoration: none;

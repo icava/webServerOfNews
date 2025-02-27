@@ -58,7 +58,7 @@ func RegisterUser(w http.ResponseWriter, r *http.Request) {
 			uid := uuid.New().String()
 
 			// Открытие базы данных
-			db, err := sql.Open("mysql", "root@tcp(MySQL-8.2:3306)/golang")
+			db, err := sql.Open("mysql", conToBD)
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
@@ -79,7 +79,6 @@ func RegisterUser(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Неверный формат логина или пароля", http.StatusBadRequest)
 			return
 		}
-		// Перенаправляем на страницу ввода кода
-		http.Redirect(w, r, "/verify", http.StatusSeeOther)
+
 	}
 }

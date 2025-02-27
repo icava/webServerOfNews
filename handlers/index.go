@@ -22,7 +22,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	db, err := sql.Open("mysql", "root@tcp(MySQL-8.2:3306)/golang")
+	db, err := sql.Open("mysql", conToBD)
 	if err != nil {
 		handleError(w, err, http.StatusInternalServerError)
 		return
@@ -45,6 +45,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		posts = append(posts, post)
+	}
+
+	for i, j := 0, len(posts)-1; i < j; i, j = i+1, j-1 {
+		posts[i], posts[j] = posts[j], posts[i]
 	}
 
 	err = t.ExecuteTemplate(w, "index", posts)
