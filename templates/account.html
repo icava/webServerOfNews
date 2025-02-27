@@ -1,0 +1,43 @@
+{{ define "account" }}
+{{ template "header" }}
+
+<div class="news-container">
+    <h2>Ваш аккаунт</h2>
+
+    <!-- Информация о пользователе -->
+    <div class="account-info">
+        <h3 class = "latest-news">Информация о профиле</h3>
+        <p class = "latest-news"><strong>Логин:</strong> {{ .Username }}</p>
+        <p class = "latest-news"><strong>Почта:</strong> {{ .Email }}</p>
+    </div>
+
+    <!-- Форма редактирования профиля -->
+    <div class="account-edit">
+        <h3>Редактировать профиль</h3>
+        <form action="/account/update" method="POST">
+            <div class="form-group">
+                <label for="email">Почта</label>
+                <input type="email" id="email" name="email" value="{{ .Email }}" placeholder="Измените вашу почту">
+            </div>
+            <div class="form-group">
+                <label for="password">Новый пароль</label>
+                <input type="password" id="password" name="password" placeholder="Введите новый пароль">
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Подтверждение пароля</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Подтвердите новый пароль">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Сохранить изменения</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Ссылка для выхода -->
+    <div class="logout">
+        <a href="/logout">Выход</a> <!-- Ссылка на страницу выхода -->
+    </div>
+</div>
+
+{{ template "footer" }}
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "verify" }}
+{{ template "header" }}
+
+<div class="verify-container">
+    <h2>Пожалуйста, введите код, который мы отправили на вашу почту</h2>
+
+    <form action="/verify" method="POST">
+        <div class="form-group">
+            <label for="verification_code">Код подтверждения</label>
+            <input type="text" id="verification_code" name="verification_code" placeholder="Введите 6-значный код" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="submit-btn">Подтвердить</button>
+        </div>
+    </form>
+
+    <p>Если вы не получили код, <a href="/resend-verification">попробуйте снова</a>.</p>
+</div>
+
+{{ template "footer" }}
+{{ end }}

@@ -1,0 +1,19 @@
+{{ define "index"}}
+
+{{ template "header"}}
+
+<div class="latest-news">Последние новости</div>
+    {{ range . }}
+        <div class="news-container">
+            <h2>{{ .Title }}</h2>
+            <div class="news-text">
+                <p>{{ .FullText }}</p>
+            </div>
+            <a href="/post/{{ .ID }}" class="read-more">Читать далее...</a>
+        </div>
+    {{ else }}
+        <p>Новостей пока нет.</p>
+    {{ end }}
+    
+{{ template "footer"  }}
+{{ end }}

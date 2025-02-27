@@ -1,0 +1,349 @@
+    @import url('http://fonts.googleapis.com/css2?family=Funnel_Sans:wght@400;500;700;800&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Funnel_Sans, Arial, sans-serif;
+        font-weight: 400;
+        background: linear-gradient(to bottom, black, #333);
+        color: rgba(255, 255, 255, 0.63);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .menu-toggle {
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: rgba(255, 255, 255, 0.753);
+        transition: transform 0.3s ease, left 0.3s ease; /* Плавные переходы */
+        z-index: 1000; /* Чтобы было поверх меню */
+        user-select: none; /* Запрещает выделение */
+        -webkit-user-select: none; /* Для Safari */
+        -moz-user-select: none; /* Для Firefox */
+        -ms-user-select: none; /* Для старых IE */
+        position: absolute;
+        left: 10px; /* Исходная позиция */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar {
+        width: 20%; /* Фиксированная ширина, чтобы текст не сжимался */
+        max-width: 250px; /* Можно ограничить максимальную ширину */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        overflow-x: hidden;
+        transition: transform 0.3s ease;
+        padding-top: 60px;
+        transform: translateX(-100%); /* Скрываем за левый край */
+        z-index: 999; /* Убираем слой меню поверх затемнённого фона */
+    }
+    
+
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        padding: 0px 0px;  /* Уменьшаем верхний и нижний отступ */
+        line-height: 1.5s;    /* Для компактного отображения текста */
+    }
+
+    .sidebar ul li a {
+        color: rgba(255, 255, 255, 0.705);
+        text-decoration: none;
+        font-size: 20px;
+        display: block;   /* Заставляет ссылки занимать всю ширину контейнера */
+        padding: 8px 15px; /* Отступы внутри ссылки, если нужно */
+        text-align: center; /* Выровнять текст по центру, если это нужно */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Показываем меню */
+    }
+
+    .logo {
+        font-family: 'Funnel_Sans', Arial, sans-serif;
+        font-size: 24px; /* Можно увеличить, если нужно */
+        font-weight: 700; /* Сделаем жирным */
+        text-align: center;
+        color: rgba(255, 255, 255, 0.767);
+        position: absolute;
+        left: 50%;
+        top: 10px;
+        transform: translateX(-50%); /* Центрирование */
+        white-space: nowrap; /* Чтобы текст не переносился */
+        user-select: none; /* Запрещает выделение */
+        -webkit-user-select: none; /* Для Safari */
+        -moz-user-select: none; /* Для Firefox */
+        -ms-user-select: none; /* Для старых IE */
+    }
+
+    header {
+        position: relative; /* Чтобы позиционирование `.logo` работало корректно */
+        height: 60px; /* Можно подстроить */
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Центрирование элементов */
+        background: rgba(0, 0, 0, 0.8); /* Затемнённый фон, если нужно */
+        padding: 10px 0;
+    }
+
+    
+    
+    
+
+
+    /* Смещение при открытии меню */
+    .sidebar.open + .menu-toggle {
+        transform: translateX(20%); /* Смещаем вправо на столько же, насколько и меню */
+    }
+
+    .sidebar.open ~ .menu-toggle {
+        left: 20%; /* Сдвигаем ровно на ширину меню */
+        max-width: 250px; /* Если у меню ограничена ширина */
+    }
+
+    /* Слой затемнения */
+
+    /* Когда меню открыто, показываем слой */
+
+    .sidebar ul li.active a {
+        color: white; /* Белый цвет текста */
+        font-weight: bold; /* Можно сделать жирным */
+    }
+    
+
+
+    .news-container {
+        width: 80%; /* Устанавливаем ширину контейнера на 80% от экрана */
+        margin: 20px auto;
+        background-color: #c7c7b4;
+        border-radius: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; /* Элементы располагаются по вертикали */
+        align-items: center; /* Для выравнивания кнопки по левому краю */
+        position: relative; /* Для позиционирования псевдоэлемента */
+    }
+    
+    .news-text {
+        max-height: 120px; /* Максимальная высота текста (поменяй по необходимости) */
+        overflow: hidden; /* Скрываем лишний текст */
+        position: relative; /* Для позиционирования псевдоэлемента */
+    }
+
+    .news-container h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%;
+        position: relative;
+    }
+    .news-container h2::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 3px;
+        background-color: #737768;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
+    
+
+    .news-text.fade::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(to bottom, transparent, #e2e0d280);
+        
+    }
+
+    .read-more {
+        display: inline;
+        padding: 10px 20px;
+        background-color: #737768;
+        color: white;
+        font-size: 14px;
+        text-decoration: none;
+        border-radius: 12px;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+    
+    .read-more:hover {
+        background-color: #474d47;
+    }
+
+    .latest-news {
+        text-align: center; /* Выравнивание текста по левому краю */
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        margin: 20px auto;
+        padding-bottom: 10px;
+        border-bottom: 2px solid white; /* Белая черта снизу */
+        width: 80%; /* Ширина такая же, как у новостей */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
+    
+    .submit-btn {
+        padding: 10px 20px;
+        background-color: #000000;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        align-items: center;
+    }
+    
+    .submit-btn:hover {
+        background-color: #3a3a3a;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        color: white;
+        box-sizing: border-box;
+    }
+    
+    .login-container h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .verify-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        color: white;
+        box-sizing: border-box;
+    }
+    
+    .verify-container h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .verify-container .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .verify-container .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    
+    .verify-container .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .verify-container .form-group input:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
+    
+    .verify-container .submit-btn {
+        padding: 10px 20px;
+        background-color: #000000;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .verify-container .submit-btn:hover {
+        background-color: #3a3a3a;
+    }
+    
+    .verify-container p {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .verify-container p a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+    
+    .verify-container p a:hover {
+        text-decoration: underline;
+    }
+    
+    
+    .error-message {
+        color: red;
+        font-size: 12px;
+        display: none;  /* Скрыто по умолчанию */
+        margin-top: 5px;
+    }
+    
+    input.error {
+        border-color: red;  /* Делаем красной рамку для поля с ошибкой */
+    }
+    
+
+
+

@@ -1,0 +1,27 @@
+{{ define "header"}}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game News</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="wrapper"></div> <!-- Убираем лишний класс "class" -->
+    <header class="container">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <span class="logo">kopatnewsb14`s</span>
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/contacts">Контакты</a></li>
+                <li><a href="/create">Создать новость</a></li>
+                <li><a href="/account">Аккаунт</a></li>
+                <li><a href="/logout">Выход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+{{end}} 

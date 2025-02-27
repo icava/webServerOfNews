@@ -1,0 +1,23 @@
+{{ define "login" }}
+{{ template "header" }}
+
+<div class="login-container">
+    <h2>Войти в аккаунт</h2>
+    <form action="/login" method="POST" class="login-form">
+        <div class="form-group">
+            <label for="username">Логин</label>
+            <input type="text" id="username" name="username" required placeholder="Введите ваш логин">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="submit-btn">Войти</button>
+        </div>
+    </form>
+    <p class="signup-link">Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
+</div>
+
+{{ template "footer" }} <!-- Если у вас есть footer -->
+{{ end }}

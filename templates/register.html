@@ -1,0 +1,35 @@
+{{ define "register" }}
+{{ template "header" }}
+
+<div class="login-container">
+    <h2>Регистрация</h2>
+    <form action="/register" method="POST" class="login-form">
+        <div class="form-group">
+            <label for="username">Логин</label>
+            <input type="text" id="username" name="username" required placeholder="Введите ваш логин">
+            <div class="error-message" id="username-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Почта</label>
+            <input type="email" id="email" name="email" required placeholder="Введите вашу почту">
+            <div class="error-message" id="email-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required placeholder="Введите ваш пароль">
+            <div class="error-message" id="password-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Подтверждение пароля</label>
+            <input type="password" id="confirm-password" name="confirm-password" required placeholder="Подтвердите ваш пароль">
+            <div class="error-message" id="confirm-password-error"></div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="submit-btn">Зарегистрироваться</button>
+        </div>
+    </form>
+    <p class="signup-link">Уже есть аккаунт? <a href="/login">Войти</a></p>
+</div>
+
+{{ template "footer" }}
+{{ end }}

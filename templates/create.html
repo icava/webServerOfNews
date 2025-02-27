@@ -1,0 +1,26 @@
+{{ define "create"}}
+
+{{ template "header"}}
+
+<div class="latest-news">Написать статью</div>
+
+<div class="news-container">
+  <form action="/save_article" method="POST">
+
+    <div class="form-group">
+      
+      <input type="text" id="title" name="title" placeholder="Введите заголовок" required>
+    </div>
+    
+    <div class="form-group">
+      
+      <textarea id="content" name="content" rows="5" placeholder="Введите текст новости" required></textarea>
+    </div>
+    
+    <button type="submit" class="submit-btn">Опубликовать</button>
+  </form>
+</div>  
+
+{{ template "footer" }}
+
+{{ end }}

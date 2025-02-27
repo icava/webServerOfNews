@@ -1,0 +1,18 @@
+{{ define "show" }}
+
+{{ template "header" }}
+
+<main class="content">
+    <div class="news-container">
+        <h1 class="page-title">{{ .Title }}</h1>
+        
+        <div class="alert-box">
+            <p class="alert-text">{{ .FullText }}</p>
+            <a href="/" class="read-more">Вернуться</a>
+        </div>
+    </div>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}
